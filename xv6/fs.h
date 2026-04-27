@@ -4,6 +4,7 @@
 
 #define ROOTINO 1  // root i-number
 #define BSIZE 512  // block size
+#define T_SYMLINK 4   // Symbolic link
 
 // Disk layout:
 // [ boot block | super block | log | inode blocks |

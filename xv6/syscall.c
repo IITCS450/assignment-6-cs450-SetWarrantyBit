@@ -13,9 +13,9 @@
 // library system call function. The saved user %esp points
 // to a saved program counter, and then the first argument.
 
-int symlink(const char *target, const char *linkpath){
-  return 0;
-}
+//int symlink(const char *target, const char *linkpath){
+//  return 0;
+//}
 
 // Fetch the int at addr from the current process.
 int

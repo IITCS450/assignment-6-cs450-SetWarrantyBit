@@ -462,19 +462,14 @@ sys_pipe(void)
 }
 
 int sys_symlink(void){
-  char target[128], path[128];
+  char *target, *path;
   struct inode *ip;
-  int n;
 
-  if((n = argstr(0, (char**) &target)) < 0 || argstr(1, &path) < 0) return -1;
+  if(argstr(0, &target) < 0 || argstr(1, &path) < 0) return -1;
 
 
   begin_op();
-  if((ip = create(path, T_SYMLINK, 0, 0)) == 0){
-    end_op();
-    return -1;
-  }
-
+  if((ip = create(path, T_SYMLINK, 0, 0)) == 0){end_op(); return -1;}
 
   int len = strlen(target) + 1;
   if(writei(ip, target, 0, len) != len){
